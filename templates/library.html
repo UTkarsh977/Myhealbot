@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h2>Health Library</h2>
+  <div class="topics">
+    {% for t in topics %}
+    <div class="topic-card">
+      <h3>{{ t.title }}</h3>
+      <p class="summary">{{ t.summary }}</p>
+      <details>
+        <summary>Read more</summary>
+        <p>{{ t.detail }}</p>
+      </details>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Contact | HealBot{% endblock %}
+{% block content %}
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold text-primary"><i class="fa-solid fa-phone-volume me-2"></i>Contact Us</h2>
+      <p class="text-muted">We’d love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      
+      <div class="col-md-8">
+        <div class="card shadow-lg border-0">
+          <div class="card-body p-4">
+            <form id="contactForm">
+              <div class="mb-3">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="name" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Your Email</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Your Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+
+            <div id="contactAlert" class="alert alert-success mt-3 d-none">
+              Message Sent Successfully! We’ll contact you soon.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value
+  };
+  const res = await fetch("/submit_contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+  const result = await res.json();
+  if (result.status === "success") {
+    document.getElementById("contactAlert").classList.remove("d-none");
+    document.getElementById("contactForm").reset();
+  }
+});
+</script>
+{% endblock %}
+

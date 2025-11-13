@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Book Appointment - HealBot{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: linear-gradient(135deg, #f5fbff, #e9f7ff); min-height: 100vh;">
+  <div class="container">
+    <h2 class="text-center text-primary fw-bold mb-5">Book Your Appointment</h2>
+
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8">
+        <div class="card shadow-lg p-5 rounded-4">
+          <form method="POST">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Name</label>
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Doctor</label>
+                <select name="doctor" class="form-select form-select-lg" required>
+                  <option value="">-- Select Doctor --</option>
+                  {% for doc in doctors %}
+                  <option value="{{ doc }}">{{ doc }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Date</label>
+                <input type="date" name="date" class="form-control form-control-lg" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Time</label>
+                <input type="time" name="time" class="form-control form-control-lg" required>
+              </div>
+            </div>
+            <div class="text-center mt-5">
+              <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm">Book Appointment</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="text-center text-secondary mb-4">Your Appointments</h3>
+    {% if appts %}
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered align-middle shadow-sm">
+        <thead class="table-primary">
+          <tr>
+            <th>Doctor</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for a in appts %}
+          <tr>
+            <td>{{ a['doctor'] }}</td>
+            <td>{{ a['date'] }}</td>
+            <td>{{ a['time'] }}</td>
+            <td>
+              <form action="{{ url_for('delete_appointment', id=a['_id']) }}" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-danger btn-sm px-3">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="text-center text-muted fs-5">You haven't booked any appointments yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

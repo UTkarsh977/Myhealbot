@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- 🌟 Hero Section -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>HealBot</h1>
+    <p>Your friendly AI health companion — get instant health info, learn about medicines, and book appointments.</p>
+    <a href="{{ url_for('book') }}" class="btn btn-primary">Book Appointment</a>
+  </div>
+  <div class="hero-right">
+    <div class="mock-browser">
+      <img src="{{ url_for('static', filename='images/telemedicine.jpg') }}" alt="Doctor consulting patient">
+    </div>
+  </div>
+</section>
+
+<!-- 💊 Services Section -->
+<section class="services">
+  <div class="card">
+    <h3>Consultations</h3>
+    <img src="{{ url_for('static', filename='images/consulting.png') }}" alt="Consultations" width="200" height="200">
+    <p>Get guidance on common ailments quickly.</p>
+  </div>
+  <div class="card">
+    <h3>Medicine Info</h3>
+    <img src="{{ url_for('static', filename='images/health-insurance.png') }}" alt="Medicine Info" width="200" height="200">
+    <p>Basic information about common medicines.</p>
+  </div>
+  <div class="card">
+    <h3>Book Doctors</h3>
+    <img src="{{ url_for('static', filename='images/book.jpg') }}" alt="Book Doctors" width="250" height="200">
+    <p>Schedule appointments with top specialists.</p>
+  </div>
+</section>
+
+<!-- 📞 Contact Section -->
+<section id="contact" class="contact-section text-center py-5 bg-light">
+  <h2 class="mb-3">📞 Contact Us</h2>
+  <p class="mb-4">We’d love to hear from you! Fill out the form below and we’ll get back to you soon.</p>
+  
+  <form id="contact-form" class="contact-form mx-auto" style="max-width: 500px;">
+    <input type="text" name="name" class="form-control mb-3" placeholder="Your Name" required>
+    <input type="email" name="email" class="form-control mb-3" placeholder="Your Email" required>
+    <textarea name="message" class="form-control mb-3" rows="5" placeholder="Your Message..." required></textarea>
+    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+  </form>
+
+  <div id="success-popup" class="popup mt-4 d-none">
+    <div class="popup-content p-3 bg-success text-white rounded">
+      <i class="fa fa-check-circle"></i>
+      <h5>Message Sent Successfully!</h5>
+      <p>Thank you for contacting HealBot. We’ll get back to you soon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Footer -->
+<footer class="text-center py-3 bg-primary text-white mt-5">
+  <p class="mb-0">© 2025 HealBot | Designed with ❤️ by Utkarsh | Contact: ukhandelwal977@gmail.com</p>
+</footer>
+
+{% endblock %}

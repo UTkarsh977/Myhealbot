@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Login - HealBot{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: linear-gradient(135deg, #e8f0ff, #f0f8ff); min-height: 90vh;">
+  <div class="container d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="card shadow-lg p-5 rounded-4" style="width: 450px; border: none;">
+      <h2 class="text-center mb-4 text-primary fw-bold">Welcome Back</h2>
+      <form method="POST">
+        <div class="form-floating mb-4">
+          <input type="email" name="email" class="form-control form-control-lg" placeholder="Email" required>
+          <label>Email address</label>
+        </div>
+        <div class="form-floating mb-4">
+          <input type="password" name="password" class="form-control form-control-lg" placeholder="Password" required>
+          <label>Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">Login</button>
+      </form>
+      <p class="text-center mt-4">
+        Don’t have an account?
+        <a href="{{ url_for('signup') }}" class="text-decoration-none fw-bold text-success">Sign up here</a>
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}
