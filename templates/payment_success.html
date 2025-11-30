@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card p-4 shadow text-center">
+
+        <h2 class="text-success">✔ Payment Successful</h2>
+        <p class="mt-3">Thank you, <b>{{ name }}</b></p>
+        <p>Amount Paid: <b>₹{{ amount }}</b></p>
+
+        <p class="text-muted">This was a fake test payment, no real transaction occurred.</p>
+
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Go to Home</a>
+    </div>
+</div>
+
+{% endblock %}

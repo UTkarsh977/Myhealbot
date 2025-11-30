@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5" style="max-width: 480px;">
+    <h2 class="text-center mb-4">Fake Payment Gateway</h2>
+
+    <div class="card shadow p-4">
+        <form method="POST">
+            <label class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-control mb-3" required>
+
+            <label class="form-label">Amount (₹)</label>
+            <input type="number" name="amount" class="form-control mb-3" required>
+
+            <label class="form-label">Select Payment Method</label>
+            <select class="form-control mb-3" required>
+                <option>UPI</option>
+                <option>Card</option>
+                <option>Net Banking</option>
+            </select>
+
+            <div class="text-center my-3">
+                <img src="{{ url_for('static', filename='images/fake_qr.png') }}" width="200">
+            </div>
+
+            <p class="text-muted text-center">Scan this fake QR (not real)</p>
+
+            <button class="btn btn-primary w-100 mt-3">Pay Now</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

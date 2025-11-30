@@ -199,5 +199,17 @@ def logout():
     flash("You’ve been logged out.", "info")
     return redirect(url_for("login"))
 
+@app.route("/payment", methods=["GET", "POST"])
+def payment():
+    if request.method == "POST":
+        name = request.form.get("name")
+        amount = request.form.get("amount")
+        
+        # Fake payment processing
+        return render_template("payment_success.html", name=name, amount=amount)
+    
+    return render_template("payment.html")
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

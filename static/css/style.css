@@ -634,6 +634,56 @@ footer {
   color: #333;
   font-size: 15px;
 }
+.qr-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.qr-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+}
+
+.qr-image {
+    width: 180px;
+    height: 180px;
+    margin: 15px 0;
+}
+
+.close-popup {
+    padding: 10px 20px;
+    background: #0aa1ff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pay-btn {
+    background: #1abc9c;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pay-btn:hover {
+    background: #17a589;
+}
+
 /* Chat widget bubbles */
 .chat-window .chat-body { background: #f8f9fa; }
 .chat-window .msg { border-radius: 12px; max-width: 80%; }

@@ -33,9 +33,35 @@
                 <input type="time" name="time" class="form-control form-control-lg" required>
               </div>
             </div>
-            <div class="text-center mt-5">
+           
+            <div class="form-row">
+    <div class="form-group">
+        <label>Payment Method</label>
+        <select id="payment-method">
+            <option>-- Select Payment Method --</option>
+            <option>UPI</option>
+            <option>Card</option>
+            <option>Cash</option>
+            <option>HealBot Pay (Fake)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Proceed Payment</label>
+        <button type="button" class="pay-btn" onclick="openQR()">Heal Pay</button>
+    </div>
+</div>
+<div id="qr-popup" class="qr-popup">
+    <div class="qr-box">
+        <h3>Scan to Pay </h3>
+        <img src="/static/images/HealbotQR.jpg" alt="HealBot QR" class="qr-image">
+        <button onclick="closeQR()" class="close-popup">Close</button>
+    </div>
+</div>
+ <div class="text-center mt-5">
               <button type="submit" class="btn btn-primary btn-lg px-5 shadow-sm">Book Appointment</button>
             </div>
+
           </form>
         </div>
       </div>
