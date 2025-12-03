@@ -79,13 +79,154 @@ def index():
 
 @app.route("/library")
 def library():
+    
     topics = [
-        {"title": "Common Cold", "summary": "Viral infection causing sneezing and sore throat.", "detail": "Rest and fluids help recovery.", "image": "cold.jpg"},
-        {"title": "Hypertension", "summary": "High blood pressure that can damage organs.", "detail": "Reduce salt intake and monitor regularly.", "image": "hypertension.jpg"},
-        {"title": "Diabetes", "summary": "High blood sugar due to insulin imbalance.", "detail": "Diet control and exercise are key.", "image": "diabetes.jpg"},
-        {"title": "Asthma", "summary": "Chronic breathing issue causing wheezing.", "detail": "Use inhalers as prescribed and avoid triggers.", "image": "asthma.jpg"},
-        {"title": "Dengue", "summary": "Mosquito-borne fever causing pain and rashes.", "detail": "Stay hydrated and get medical attention.", "image": "dengue.jpg"}
+    {"title": "Asthma", "summary": "Chronic condition causing breathing difficulty.", 
+     "detail": "Inflammation narrows airways. Inhalers help manage symptoms."},
+
+    {"title": "Allergies", "summary": "Body overreacts to harmless substances.", 
+     "detail": "Caused by pollen, dust, food. Antihistamines reduce symptoms."},
+
+    {"title": "Migraine", "summary": "Severe recurring headache with nausea.", 
+     "detail": "Triggers include stress, lights, foods. Painkillers and rest help."},
+
+    {"title": "Tuberculosis", "summary": "Bacterial infection affecting lungs.", 
+     "detail": "Treatable with long-term antibiotics."},
+
+    {"title": "Pneumonia", "summary": "Infection causing inflamed lungs.", 
+     "detail": "Requires rest, antibiotics, and hydration."},
+
+    {"title": "Bronchitis", "summary": "Inflammation of bronchial tubes.", 
+     "detail": "Causes coughing and mucus. Avoid smoke and cold air."},
+
+    {"title": "Sinusitis", "summary": "Inflamed sinuses causing facial pain.", 
+     "detail": "Steam inhalation and saline sprays help."},
+
+    {"title": "Arthritis", "summary": "Joint inflammation causing pain.", 
+     "detail": "Medication and exercise reduce stiffness."},
+
+    {"title": "Osteoporosis", "summary": "Weak bones prone to fracture.", 
+     "detail": "Calcium, vitamin D, and exercise improve bone health."},
+
+    {"title": "Anemia", "summary": "Low red blood cells causing fatigue.", 
+     "detail": "Iron-rich foods and supplements help recovery."},
+
+    {"title": "Thyroid Disorder", "summary": "Imbalance in thyroid hormone levels.", 
+     "detail": "Hyperthyroidism increases activity; hypothyroidism slows metabolism."},
+
+    {"title": "Jaundice", "summary": "Yellowing of skin due to liver issues.", 
+     "detail": "Treat underlying liver condition and stay hydrated."},
+
+    {"title": "Hepatitis A", "summary": "Liver infection from contaminated food/water.", 
+     "detail": "Prevention through hygiene and vaccination."},
+
+    {"title": "Hepatitis B", "summary": "Viral liver infection transmitted via fluids.", 
+     "detail": "Antiviral therapy and regular monitoring are needed."},
+
+    {"title": "Kidney Stones", "summary": "Hard deposits causing severe pain.", 
+     "detail": "Drink plenty of water; may require medical removal."},
+
+    {"title": "Urinary Tract Infection", "summary": "Bacterial infection in urinary system.", 
+     "detail": "Burning sensation; treated with antibiotics."},
+
+    {"title": "PCOS", "summary": "Hormonal imbalance in women.", 
+     "detail": "Causes irregular periods, weight gain. Requires lifestyle change."},
+
+    {"title": "Heart Attack", "summary": "Blocked blood flow to the heart.", 
+     "detail": "Immediate medical attention is required."},
+
+    {"title": "Stroke", "summary": "Interrupted blood supply to the brain.", 
+     "detail": "FAST response is important — speech, weakness, confusion."},
+
+    {"title": "Hypertension", "summary": "High blood pressure damaging organs.", 
+     "detail": "Exercise, diet control, and regular monitoring are essential."},
+
+    {"title": "Hypotension", "summary": "Low blood pressure causing dizziness.", 
+     "detail": "Increase salt intake and stay hydrated."},
+
+    {"title": "Obesity", "summary": "Excess body fat affecting health.", 
+     "detail": "Diet, exercise, and lifestyle changes are key."},
+
+    {"title": "Acne", "summary": "Skin condition causing pimples.", 
+     "detail": "Clean skin routine and medication help."},
+
+    {"title": "Eczema", "summary": "Dry itchy skin inflammation.", 
+     "detail": "Moisturizing and avoiding irritants help."},
+
+    {"title": "Psoriasis", "summary": "Skin cells build up causing patches.", 
+     "detail": "Requires topical treatments or phototherapy."},
+
+    {"title": "Dengue Fever", "summary": "Mosquito-borne viral fever.", 
+     "detail": "Fever, pain, low platelets; hydration is vital."},
+
+    {"title": "Typhoid", "summary": "Bacterial fever from contaminated water.", 
+     "detail": "Treated with antibiotics and fluids."},
+
+    {"title": "Cholera", "summary": "Severe diarrhea from contaminated water.", 
+     "detail": "ORS and hydration prevent dehydration."},
+
+    {"title": "Measles", "summary": "Contagious viral infection.", 
+     "detail": "Vaccination prevents it. Causes fever and rash."},
+
+    {"title": "Chickenpox", "summary": "Itchy rashes and fever.", 
+     "detail": "Rest and calamine lotion help."},
+
+    {"title": "Malaria", "summary": "Mosquito-borne parasite infection.", 
+     "detail": "Causes fever and chills; requires antimalarial drugs."},
+
+    {"title": "COVID-19", "summary": "Respiratory illness caused by coronavirus.", 
+     "detail": "Causes cough, fever; masks and vaccination help."},
+
+    {"title": "Anxiety", "summary": "Mental health condition causing worry.", 
+     "detail": "Deep breathing, therapy, and lifestyle changes help."},
+
+    {"title": "Depression", "summary": "Persistent sadness affecting life.", 
+     "detail": "Therapy and medication are effective."},
+
+    {"title": "Insomnia", "summary": "Difficulty falling asleep.", 
+     "detail": "Sleep routine and relaxation help."},
+
+    {"title": "Appendicitis", "summary": "Inflamed appendix causing severe pain.", 
+     "detail": "Requires immediate surgical removal."},
+
+    {"title": "Gastritis", "summary": "Inflamed stomach lining.", 
+     "detail": "Avoid spicy foods; antacids help."},
+
+    {"title": "GERD", "summary": "Acid reflux causing burning sensation.", 
+     "detail": "Lifestyle changes and antacids relieve it."},
+
+    {"title": "Diarrhea", "summary": "Frequent loose stools.", 
+     "detail": "ORS and hydration prevent dehydration."},
+
+    {"title": "Constipation", "summary": "Difficulty passing stools.", 
+     "detail": "Fiber-rich diet and water help."},
+
+    {"title": "Dehydration", "summary": "Lack of body fluids.", 
+     "detail": "Drink water, ORS, and avoid heat exposure."},
+
+    {"title": "Epilepsy", "summary": "Neurological disorder causing seizures.", 
+     "detail": "Requires anticonvulsant medication."},
+
+    {"title": "Cataract", "summary": "Clouding of the eye lens.", 
+     "detail": "Surgery restores clear vision."},
+
+    {"title": "Glaucoma", "summary": "Increased eye pressure leading to vision loss.", 
+     "detail": "Eye drops and surgery help control pressure."},
+
+    {"title": "Conjunctivitis", "summary": "Eye infection causing redness.", 
+     "detail": "Avoid touching eyes; antibiotic drops help."},
+
+    {"title": "Food Poisoning", "summary": "Illness from contaminated food.", 
+     "detail": "Rest, hydration, and bland diet help."},
+
+    {"title": "Heat Stroke", "summary": "Overheating causing collapse.", 
+     "detail": "Immediate cooling and hydration needed."},
+
+    {"title": "Sprain", "summary": "Injury to ligaments.", 
+     "detail": "RICE therapy — Rest, Ice, Compression, Elevation."}
     ]
+
+    
     return render_template("library.html", topics=topics)
 
 @app.route("/book", methods=["GET", "POST"])
