@@ -197,8 +197,8 @@ body {
 /* Chatbot Window Improved */
 .chatbot {
   position: fixed;
-  right: 40px;
-  bottom: 40px;
+  right: 80px;
+  bottom: 80px;
   z-index: 300;
   font-family: "Poppins", sans-serif;
 }
