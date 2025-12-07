@@ -163,6 +163,7 @@ FAQS = [
     {"q": r"hi|hello|hey", "a": "Hello! How can I assist you today?"},
     {"q": r"thank|thanks", "a": "You're welcome! Stay healthy."},
     {"q": r"bye|goodbye", "a": "Take care! Feel free to ask again."},
+]
 
 # ---------- Chatbot Logic ----------
 def bot_response(user_text):
